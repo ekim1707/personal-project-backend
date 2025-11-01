@@ -1,0 +1,11 @@
+-- CREATE TABLE users (
+--     id SERIAL PRIMARY KEY,                       -- auto-incrementing unique ID
+--     username VARCHAR(50) UNIQUE NOT NULL,        -- unique username
+--     email VARCHAR(255) UNIQUE NOT NULL,          -- unique email address
+--     full_name VARCHAR(100),                      -- user's full name
+--     hashed_password VARCHAR(255) NOT NULL,       -- bcrypt-hashed password
+--     is_active BOOLEAN DEFAULT TRUE,              -- user active status
+--     is_superuser BOOLEAN DEFAULT FALSE,          -- admin flag
+--     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+--     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+-- );
