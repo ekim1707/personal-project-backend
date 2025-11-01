@@ -6,12 +6,12 @@ from app.db.session import engine
 from app.api.routes import users as users_router
 
 # Ensure tables exist (for simple setups; in prod use Alembic migrations)
-Base.metadata.create_all(bind=engine)
+# Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title=settings.PROJECT_NAME)
 
 ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+    "*",
 ]
 
 app.add_middleware(

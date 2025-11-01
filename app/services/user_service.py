@@ -1,6 +1,6 @@
 from typing import Optional, List
 from sqlalchemy.orm import Session
-from sqlalchemy import select
+from sqlalchemy import select, text
 from passlib.context import CryptContext
 from app.db.models.user import User
 from app.schemas.user import UserCreate, UserUpdate
@@ -11,9 +11,20 @@ def hash_password(plain: str) -> str:
     return pwd_context.hash(plain)
 
 # CRUD
+# In user_service.py, modify list_users:
 def list_users(db: Session, skip: int = 0, limit: int = 100) -> List[User]:
+    # Debug: Check what database we're connected to
+    result = db.execute(text("SELECT current_database(), current_user;"))
+    print(f"Connected to: {result.fetchone()}")
+    
+    # Debug: Check if table exists and has data
+    result = db.execute(text("SELECT COUNT(*) FROM users;"))
+    print(f"Raw count from users table: {result.scalar()}")
+    
     stmt = select(User).offset(skip).limit(limit)
-    return list(db.execute(stmt).scalars())
+    result = db.execute(stmt).scalars().all()
+    print(f"Found {len(result)} users via SQLAlchemy")
+    return result
 
 def get_user(db: Session, user_id: int) -> Optional[User]:
     return db.get(User, user_id)

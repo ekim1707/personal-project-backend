@@ -1,4 +1,4 @@
-#!/Users/eugenekim/Desktop/project/backend/.venv/bin/python3.9
+#!/Users/eugenekim/Desktop/personal-project/backend/.venv/bin/python3.9
 # -*- coding: utf-8 -*-
 import re
 import sys
