@@ -1,0 +1,2 @@
+INSERT INTO users (id, username, email, full_name, hashed_password, is_active, is_superuser, created_at, updated_at)
+VALUES (1, 'ekim1707', 'ekim1707@gmail.com', 'Eugene Kim', '$2b$12$hashedpasswordhere', true, true, '2024-01-15 10:30:00-05', '2024-01-15 10:30:00-05');
